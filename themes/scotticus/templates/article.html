@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}<h1><a class="title" href="{{SITEURL}}">{{ SITENAME }}</a> | {{ article.title }}</h1>{% endblock %}
+{% block content %}
+                <div class="row blog_entry">
+                    <div class="span1 blog_date">
+                        {{ article.date.strftime("%B <h2>%d</h2> %Y") }}
+                    </div>
+                    <div class="span8">
+                        <!-- <h2 class="post_title"><a class="post_title" href="/{{article.url}}">{{ article.title }}</a></h2> -->
+                        <div class="blog_post">
+                        {{ article.content }}
+                        </div>
+                        {% include 'metadata.html' %}
+                    </div>
+                </div>
+{% endblock %}

@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <title>{% block windowtitle %}{{ SITENAME }}{% endblock %}</title>
+        <meta name="author" content="{{ AUTHOR }}">
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css">
+        <style>
+        div#header {
+            background: #999;
+        }
+        div#header2 {
+            background: #bbb;
+            height: 3px;
+        }
+        div#header3 {
+            background: #ddd;
+            height: 3px;
+        }
+        div#footer {
+            font-size: 8pt;
+            color: #555;
+            background: #999;
+        }
+        div#footer2 {
+            background: #bbb;
+            height: 3px;
+        }
+        div#footer3 {
+            background: #ddd;
+            height: 3px;
+        }
+        div#nav {
+            padding:5px;
+            border-left: 2px dotted #999;
+            height: 99%;
+        }
+        div#main {
+            background: #eee;
+            padding: 5px;
+        }
+        div.nav_header {
+            font-weight: bold;
+            border-bottom: 2px solid #ccc;
+        }
+        ul.nav_list {
+            list-style: none;
+        }
+        ul.archive_list {
+            list-style: none;
+            margin-bottom: 1px;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        a.title {
+            text-decoration: none;
+            color: black;
+        }
+        span.day {
+            font-size:16pt;
+        }
+        div.blog_entry {
+            padding-bottom: 10px;
+            padding-top: 10px;
+            border-bottom: 2px solid #fff;
+        }
+        div.blog_date {
+            color: #aaa;
+            text-align: center;
+        }
+        div.blog_post {
+            white-space: pre-line;
+        }
+        h2.post_title {
+            background: #ddd;
+            border-bottom: 2px solid #ccc;
+            padding: 2px;
+        }
+        a.post_title {
+            text-decoration: none;
+            color: #333;
+        }
+        </style>
+    </head>
+    <body>
+            <!-- header -->
+            <div class="row" id="header">
+                <div class="span10">
+                    {% block title %}<h1><a class="title" href="{{SITEURL}}">{{ SITENAME }}</a></h1>{% endblock %}
+                </div>
+            </div>
+            <div class="row" id="header2">
+            </div>
+            <div class="row" id="header3">
+            </div>
+            <!-- end header -->
+            <div class="row" id="main">
+                <div class="span10" id="body">
+                    <!-- start bloggy bits -->
+                    {% block content %}{% endblock %}
+                    <!-- end bloggy bits -->
+                </div>
+                <div class="span2" id="nav">
+                    <!-- start nav -->
+                    {% if LINKS %}
+                    <div class="nav_header">
+                        links
+                    </div>
+                    <ul class="nav_list">
+                        {% for name, link in LINKS %}
+                        <li><a href="{{ link }}">{{ name }}</a></a>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% if SOCIAL %}
+                    <div class="nav_header">
+                        social
+                    </div>
+                    <ul class="nav_list">
+                        {% for name, link in SOCIAL %}
+                        <li><a href="{{ link }}">{{ name }}</a></a>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% if categories %}
+                    <div class="nav_header">
+                        categories
+                    </div>
+                    <ul class="nav_list">
+                        {% for cat, null in categories %}
+                        <li><a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    <div class="nav_header">
+                        site
+                    </div>
+                    <ul class="nav_list">
+                        <li><a href="{{ SITEURL }}/archives.html">archives</a></li>
+                        <li><a href="{{ SITEURL }}/tags.html">tags</a></li>
+                        <li><a href="{{ SITEURL }}/{{ FEED }}">atom feed</a></li>
+                        {% if FEED_RSS %}
+                        <li><a href="{{ SITEURL }}/{{ FEED_RSS }}">rss feed</a></li>
+                        {% endif %}
+                    </ul>
+                    <!-- end nav -->
+                </div>
+            </div>
+            <div class="row" id="footer3"></div>
+            <div class="row" id="footer2"></div>
+            <div class="row" id="footer">
+                <div class="span10 offset1">
+                    <a href="{{ SITEURL }}">{{ SITENAME }}</a> &copy; {{ AUTHOR }} 2012
+                </div>
+            </div>
+            {% include 'github.html' %}
+    </body>
+</html>

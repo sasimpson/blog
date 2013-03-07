@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}<h1><a class="title" href="{{SITEURL}}">{{ SITENAME }}</a> | tags</h1>{% endblock %}
+{% block content %}
+                <div class="row archive">
+                    <div class="span9 offset1">
+                        <p/>
+                        <h2 class="post_title">Tags</h2>
+                        {% for tag, articles in tags %}
+                        <a href='{{ SITEURL }}/tag/{{tag}}.html'>{{tag}}</a><br/>
+                        {% endfor %}
+                    </div>
+                </div>
+{% endblock %}
