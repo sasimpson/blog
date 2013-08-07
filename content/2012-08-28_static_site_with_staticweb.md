@@ -79,4 +79,4 @@ and you might see some extra URI's in there but you want the **X-CDN-URI** heade
 
 **note** CloudFiles now has multiregion support for the US.  You can create containers and objects in multiple regions (DFW and ORD for now), which means that you need to pay attention to which endpoints you use from the auth call.
 
-**note 2** if you want to use this in another region, you need to grab the cloudFiles:publicURL from the region you want.  in my Auth 2.0 example above, i show the DFW region, but you could just as easily use ORD or SYD.  The endpoints are all listed in the Auth 2.0 return data, but really you just need to substitue ord1 or syd2 for dfw1 in your endpoint.
+**note 2** (updated 8/7/13) if you want to use this in another region, you need to grab the cloudFiles:publicURL from the region you want.  in my Auth 2.0 example above, i show the DFW region, but you could just as easily use ORD or SYD.  The endpoints are all listed in the Auth 2.0 return data, but really you just need to substitue ord1 or syd2 for dfw1 in your endpoint.
