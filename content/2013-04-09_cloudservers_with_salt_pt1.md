@@ -1,7 +1,7 @@
 Date: 2013-08-07
 Title: CloudServers with Salt
 Author: Scott
-Category: programming
+Category: rackspace
 
 [Salt](http://docs.saltstack.com) is a python based infrastructure management
  tool.  With it you can use a master to control a bunch of minions.  One feature

@@ -1,7 +1,7 @@
 Date: 2013-10-1
 Title: Role Based Access Control and CloudFiles
 Author: Scott
-Category: programming,openstack,rackspace
+Category: rackspace
 
 Recently Rackspace added Role Based Access Control to the identity system.  This means the main account user can create sub users and roles and that main user can allow the sub users to have access to portions of their Rackspace Cloud account. We're only going to look at CloudFiles for this post.
 
@@ -67,7 +67,7 @@ and:
 
 if adding a user is what you're after, its pretty simple.  Our user called 'scott_test_user' with email of 'test_user@testdomain.com':
 
-    http -j post https://identity.api.rackspacecloud.com/v2.0/users x-auth-token:9fd8ce103db942eb971b6b01b9697b64 user='{"username": "scott_test_user", "email": "test_user@testdomain.com", "enabled": true}'
+    http -j post https://identity.api.rackspacecloud.com/v2.0/users x-auth-token:<auth token> user='{"username": "scott_test_user", "email": "test_user@testdomain.com", "enabled": true}'
 
     {
         "user": {

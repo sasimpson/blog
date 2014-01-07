@@ -1,7 +1,7 @@
 Date: 2013-09-12
 Title: TempURL with CloudFiles/Swift
 Author: Scott
-Category: programming,openstack,rackspace
+Category: rackspace
 
 CloudFiles and Swift has a neat feature that allows you to provide a temporary URL for users.  You can limit the URL by method and time.  This is useful if you have a file you want to allow someone to download temporarily, but not make completely public through the CDN.  *Note* My examples will use Rackspace CloudFiles, but you can do the same thing with any Openstack Swift setup, provided it has the TempURL middleware enabled in the pipeline.
 
