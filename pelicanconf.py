@@ -28,3 +28,4 @@ DEFAULT_PAGINATION = 5
 
 GITHUB_URL = 'http://github.com/sasimpson'
 TWITTER_USERNAME = 'scotty'
+DISQUS_SITENAME = 'scotticus'

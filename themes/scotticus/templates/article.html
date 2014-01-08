@@ -11,6 +11,9 @@
                         {{ article.content }}
                         </div>
                         {% include 'metadata.html' %}
+                        <!-- disqus bits -->
+                        {% if DISQUS_SITENAME %}<div id="disqus_thread"></div>{% endif %}
+                        <!-- end disqus bits -->
                     </div>
                 </div>
 {% endblock %}
