@@ -24,7 +24,7 @@ SOCIAL = (
           ('linkedin', 'http://www.linkedin.com/in/scotticus'),
          )
 
-DEFAULT_PAGINATION = 5
+DEFAULT_PAGINATION = 10
 
 GITHUB_URL = 'http://github.com/sasimpson'
 TWITTER_USERNAME = 'scotty'
