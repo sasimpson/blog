@@ -1,6 +1,7 @@
 baseurl = "http://blog.scottic.us/"
 languageCode = "en-us"
 title = "blog.scottic.us"
+theme = "vienna"
 [params]
     twitter = "scotty"
     github = "sasimpson"
