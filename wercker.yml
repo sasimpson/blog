@@ -1,0 +1,24 @@
+box: busybox
+
+build:
+    box: google/golang
+    steps:
+        - script:
+            name: initialize git submodules
+            code: |
+                git submodule update --init --recursive
+        - arjen/hugo-build:
+            version: "0.18.1"
+            theme: vienna
+            disable_pygments: true
+            flags: -v
+        
+deploy-to-cloudfiles:
+    box: python:2.7
+    steps:
+        - pip-install:
+            requirements_file: ""
+            packages_list: "swiftly six"
+        - script:
+            name: call swiftly
+            code: swiftly --verbose --region $WERCKER_RACKSPACE_CLOUDFILES_SWIFTLY_REGION put -i ./public $WERCKER_RACKSPACE_CLOUDFILES_SWIFTLY_CONTAINER 
