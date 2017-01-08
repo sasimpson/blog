@@ -1,7 +1,0 @@
-{% if article.author %}
-by <a class="url fn" href="{{ SITEURL }}/author/{{ article.author }}.html">{{ article.author }}</a>
-{% endif %}
-<br/>
-{% if article.tags %} 
-    Tags {% for tag in article.tags %}<a href="{{ SITEURL }}/tag/{{ tag }}.html" class="label">{{ tag }}</a> {% endfor %}
-{% endif %}
