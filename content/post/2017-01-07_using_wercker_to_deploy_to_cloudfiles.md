@@ -1,6 +1,5 @@
 +++
 title = "Using Wercker to deploy Hugo to Cloud Files"
-draft = true
 date = "2017-01-07T19:36:56-06:00"
 
 +++
