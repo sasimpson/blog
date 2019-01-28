@@ -1,3 +1,6 @@
 [submodule "themes/vienna"]
 	path = themes/vienna
 	url = https://github.com/keichi/vienna
+[submodule "themes/terminal"]
+	path = themes/terminal
+	url = https://github.com/panr/hugo-theme-terminal.git
