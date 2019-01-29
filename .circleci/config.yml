@@ -7,10 +7,15 @@ jobs:
 
     steps:
       - checkout
+      # update the theme submodule
+      - run: git submodule update --recursive --remote
+      # get the latest hugo binary
       - run: wget https://github.com/gohugoio/hugo/releases/download/v0.53/hugo_0.53_Linux-64bit.tar.gz
       - run: tar -zxf hugo_0.53_Linux-64bit.tar.gz
       
+      #run hugo to generate with theme
       - run: ./hugo
 
+      #upload artifacts for next job step
       - store_artifacts:
           path: /root/project/public  
