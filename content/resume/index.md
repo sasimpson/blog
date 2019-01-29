@@ -1,3 +1,9 @@
++++
+Title = "Resume"
+Date = "2019-01-29"
+
++++
+
 # Scott A Simpson
 
 [linkedin](https://www.linkedin.com/in/scotticus/)
@@ -167,7 +173,7 @@ Responsibilities included maintaining existing eCommerce system, upgrading vario
 
 ## Education
 
-**Masters of Science in Software Engineering**, Expected Graduation December 2017  
+**Masters of Science in Software Engineering**, Expected Graduation May 2019  
 *St Mary's University, San Antonio, TX*  
 **Bachelors of Science in Software Engineering**, May 2006  
 *St Mary's University, San Antonio, TX*  
