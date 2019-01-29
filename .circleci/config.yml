@@ -35,7 +35,7 @@ jobs:
           at: /tmp/project
 
       - run: ls -l /tmp/project
-      
+
       # - run: | 
       #     echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
       #     gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
@@ -47,4 +47,6 @@ workflows:
   build_and_deploy:
     jobs:
       - build
-      - deploy
+      - deploy:
+          requires:
+            - build
