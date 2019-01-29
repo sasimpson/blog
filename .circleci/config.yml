@@ -34,13 +34,11 @@ jobs:
       - attach_workspace:
           at: /tmp/project
 
-      - run: ls -l /tmp/project
-
-      # - run: | 
-      #     echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
-      #     gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
-      #     gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
-      # - run: gsutil -m cp -r public/* gs://blog.scottic.us/
+      - run: | 
+          echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
+          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+          gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+      - run: gsutil -m cp -r /tmp/project/public/* gs://blog.scottic.us/
 
 workflows:
   version: 2
