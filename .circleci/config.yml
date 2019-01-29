@@ -6,13 +6,16 @@ jobs:
       - image: alpine:latest
 
     steps:
-      - checkout
-      # update the theme submodule
-      - run: git submodule update --recursive --remote
+      - run: apk update; apk add git
       # get the latest hugo binary
       - run: wget https://github.com/gohugoio/hugo/releases/download/v0.53/hugo_0.53_Linux-64bit.tar.gz
       - run: tar -zxf hugo_0.53_Linux-64bit.tar.gz
       
+      # get the code
+      - checkout
+      # update the theme submodule
+      - run: git submodule update --recursive --remote
+
       #run hugo to generate with theme
       - run: ./hugo
 
