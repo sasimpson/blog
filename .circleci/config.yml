@@ -22,9 +22,9 @@ jobs:
       #     path: /root/project/public
 
       - persist_to_workspace:
-          root: /root
+          root: /root/project
           paths:
-          - project/public
+          - public
   
   deploy:
     docker:
