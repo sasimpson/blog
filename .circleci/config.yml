@@ -4,15 +4,16 @@ jobs:
     docker:
       # specify the version
       - image: ssimpson/hugo:latest
-      
+
     steps:
       # get the code
       - checkout
+
       # update the theme submodule
       - run: git submodule update --recursive --remote
 
       #run hugo to generate with theme
-      - run: ./hugo
+      - run: hugo
 
       #upload artifacts for next job step
       - store_artifacts:
