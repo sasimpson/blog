@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version
+      - image: alpine:latest
+
+    steps:
+      - checkout
+      - run: wget https://github.com/gohugoio/hugo/releases/download/v0.53/hugo_0.53_Linux-64bit.tar.gz
+      - run: tar -zxf hugo_0.53_Linux-64bit.tar.gz
+      
+      - run: ./hugo
+
+      - store_artifacts:
+          path: /root/project/public  
