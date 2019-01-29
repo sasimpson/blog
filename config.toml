@@ -4,11 +4,21 @@ title = "blog.scottic.us"
 # theme = "vienna"
 theme = "terminal"
 
-# [params]
-#     twitter = "scotty"
-#     github = "sasimpson"
-#     keybase = "sasimpson"
-#     disqus = "scotticus"
-#     author = "scott"
-#     avatar = "http://s.gravatar.com/avatar/e633bf55b82efbc02e5a85b53c61afea?s=80"
-#     themeColor = "green"
+[params]
+    twitter = "scotty"
+    github = "sasimpson"
+    keybase = "sasimpson"
+    disqus = "scotticus"
+    author = "scott"
+    avatar = "http://s.gravatar.com/avatar/e633bf55b82efbc02e5a85b53c61afea?s=80"
+    themeColor = "green"
+
+[languages]
+    [languages.en]
+        title = "hi."
+        subtitle = "my blog."
+        [languages.en.menu]
+            [[languages.en.menu.main]]
+                identifier = "about"
+                name = "About"
+                url = "/about"
