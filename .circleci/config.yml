@@ -18,5 +18,24 @@ jobs:
       - run: hugo -t terminal
 
       #upload artifacts for next job step
-      - store_artifacts:
-          path: /root/project/public  
+      # - store_artifacts:
+      #     path: /root/project/public
+
+      - persist_to_workspace:
+          root: /root/project
+          paths:
+          - public
+  
+  deploy:
+    docker:
+      - image: google/cloud-sdk
+    
+    steps:
+      - attach_workspace:
+          at: /root/project
+
+      - run: | 
+          echo $GCLOUD_SERVICE_KEY | sudo gcloud auth activate-service-account --key-file=-
+          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+          gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+      - run: gsutil -m cp -r public/* gs://blog.scottic.us/
