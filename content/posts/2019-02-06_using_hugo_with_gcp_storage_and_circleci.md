@@ -1,7 +1,6 @@
 ---
-title: "2019 02 06_using_hugo_with_gcp_storage_and_circleci"
+title: "Using Hugo with GCP Storage and CircleCI"
 date: 2019-02-06T13:45:59-08:00
-draft: true
 ---
 
 I have been using a combination of Hugo+GitHub+Wercker+CloudFiles to compose, store, build, and host my blog for a while.  Recently, my wercker integration broke and wercker was also purchased by Oracle.  I have been pretty familiar with CircleCI for a while now, so I decided to give that a try for this process.  I also no longer (2 years) work for Rackspace, so I decided to move my blog to Google Cloud Platform's Storage service and use it for my static hosting needs.  
@@ -16,7 +15,7 @@ The second job does the deploy bits, using the Google Cloud SDK image and inject
 
 So with a hugo blog, such as this one, you just need to have the .circleci config directory with the config similar to mine then setup your circleci project and this will automate the build and deploy of the blog.  
 
-### Dockerfile breakdown
+### Dockerfile Breakdown
 
 Here is the Dockerfile for the Hugo image:
 
@@ -45,7 +44,7 @@ Then extract the binary into the /usr/bin directory so our circleci runner can e
 
     RUN tar -C /usr/bin -zxf hugo_0.54.0_Linux-64bit.tar.gz
 
-### CircleCI Config Breakdown:
+### CircleCI Config Breakdown
 
 CircleCI config (.circleci/config.yml):
 
