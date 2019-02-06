@@ -13,7 +13,7 @@ jobs:
       - run: git submodule update --init themes/terminal
 
       #run hugo to generate with theme
-      - run: hugo0
+      - run: hugo
 
       - persist_to_workspace:
           root: /root/project
