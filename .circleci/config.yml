@@ -11,15 +11,9 @@ jobs:
 
       # update the theme submodule
       - run: git submodule update --init themes/terminal
-      # - run: git submodule update --recursive --remote
 
-      - run: hugo version
       #run hugo to generate with theme
-      - run: hugo -t terminal
-
-      #upload artifacts for next job step
-      # - store_artifacts:
-      #     path: /root/project/public
+      - run: hugo0
 
       - persist_to_workspace:
           root: /root/project
