@@ -1,4 +1,4 @@
-baseurl = "http://blog.scottic.us/"
+baseurl = "https://blog.scottic.us/"
 languageCode = "en-us"
 title = "blog.scottic.us"
 # theme = "vienna"
