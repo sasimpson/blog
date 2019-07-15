@@ -3,7 +3,7 @@ title: "Using Hugo with GCP Storage and CircleCI"
 date: 2019-02-06T13:45:59-08:00
 ---
 
-I have been using a combination of Hugo+GitHub+Wercker+CloudFiles to compose, store, build, and host my blog for a while.  Recently, my wercker integration broke and wercker was also purchased by Oracle.  I have been pretty familiar with CircleCI for a while now, so I decided to give that a try for this process.  I also no longer (2 years) work for Rackspace, so I decided to move my blog to Google Cloud Platform's Storage service and use it for my static hosting needs.  
+I have been usinag a combination of Hugo+GitHub+Wercker+CloudFiles to compose, store, build, and host my blog for a while.  Recently, my wercker integration broke and wercker was also purchased by Oracle.  I have been pretty familiar with CircleCI for a while now, so I decided to give that a try for this process.  I also no longer (2 years) work for Rackspace, so I decided to move my blog to Google Cloud Platform's Storage service and use it for my static hosting needs.  
 
 I was using another image for doing hugo builds on wercker, but it hadn't been updated, so I build my own, [here](https://github.com/sasimpson/hugo), which is a pretty simple dockerfile.
 
@@ -124,7 +124,7 @@ We have two jobs, build:
             root: /root/project
             paths:
             - public
-    
+
 then deploy:
 
       deploy:

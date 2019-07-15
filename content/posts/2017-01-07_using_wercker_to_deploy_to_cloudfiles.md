@@ -33,7 +33,7 @@ which isn't unlike what I was doing for Pelican.  However, my windows desktop I 
                 name: call swiftly
                 code: swiftly --verbose --region $WERCKER_RACKSPACE_CLOUDFILES_SWIFTLY_REGION put -i ./public $WERCKER_RACKSPACE_CLOUDFILES_SWIFTLY_CONTAINER 
 
-The build part is almost the same, other than I included a piece to make sure the git submodules are up to date since I use that for themes. 
+The build part is almost the same, other than I included a piece to make sure the git submodules are up to date since I use that for themes.
 
     - script:
         name: initialize git submodules
