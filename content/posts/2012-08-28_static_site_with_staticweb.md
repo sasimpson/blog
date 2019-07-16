@@ -8,7 +8,7 @@ Tags = ["rackspace"]
 
 One of the really cool features of CloudFiles is StaticWeb.  Essentially you can host whole _static_ site within a CloudFiles CDN enabled container.  I'm going to show you how to get a static site setup under CloudFiles.
 
-You need to have a Rackspace Cloud account, which you can get [here](http://www.rackspace.com/cloud/).  Once you have your account setup, you can get your API key from the control panel.  Authenticating with Rackspace Cloud looks a little like:
+You need to have a Rackspace Cloud account, which you can get [here](https://www.rackspace.com/cloud/).  Once you have your account setup, you can get your API key from the control panel.  Authenticating with Rackspace Cloud looks a little like:
 
     curl -XPOST https://identity.api.rackspacecloud.com/v2.0/tokens {"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"your rackspace cloud user","apiKey":"your rackspace cloud api key"}}}
 

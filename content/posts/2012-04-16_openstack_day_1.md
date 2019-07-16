@@ -18,4 +18,4 @@ There were also talks about statsd integration.  Florian has done a lot of work 
 
 It was very good to talk with other users and see what some of their needs were.  It didn't hurt the whole thing was in San Francisco.  Some great parties held throughout the week.  
 
-![essex](http://farm8.staticflickr.com/7087/6939755664_16a62f36bd_z.jpg)
+![essex](https://farm8.staticflickr.com/7087/6939755664_16a62f36bd_z.jpg)

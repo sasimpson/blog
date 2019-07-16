@@ -45,6 +45,6 @@ all together:
     url = '%s%s?temp_url_sig=%sAMP;temp_url_expires=%s' % \
         (<your storageURL basehref>, object_path, sig, expires)
 
-or you could just use !(Swiftly)[http://gholt.github.io/swiftly/dev/]:
+or you could just use !(Swiftly)[https://gholt.github.io/swiftly/dev/]:
 
     swiftly tempurl GET /my_tempurl_container/my_tempurl_object.txt 600

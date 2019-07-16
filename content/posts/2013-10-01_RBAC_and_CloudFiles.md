@@ -105,5 +105,5 @@ the result should be a 204 code, which means it should have saved the metadata i
 
 The user can now login to auth with their password and get a token that allows them access to the CloudFiles container you gave them permission to.  Careful, setting _WRITE_ permission will allow them to delete objects.
 
-[User Documentation](http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/User_Calls.html)
-[Roles Documentation](http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Role_Calls.html)
+[User Documentation](https://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/User_Calls.html)
+[Roles Documentation](https://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Role_Calls.html)

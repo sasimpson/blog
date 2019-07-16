@@ -2,4 +2,4 @@
 
 # blog
 
-my blog found at [blog.scottic.us](http://blog.scottic.us)
+my blog found at [blog.scottic.us](https://blog.scottic.us)
