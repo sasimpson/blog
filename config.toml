@@ -2,6 +2,7 @@ baseurl = "https://blog.scottic.us/"
 languageCode = "en-us"
 title = "blog.scottic.us"
 theme = "terminal"
+paginate = 5
 
 [params]
     twitter = "scotty"
