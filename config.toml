@@ -1,7 +1,6 @@
 baseurl = "https://blog.scottic.us/"
 languageCode = "en-us"
 title = "blog.scottic.us"
-# theme = "vienna"
 theme = "terminal"
 
 [params]
@@ -12,6 +11,8 @@ theme = "terminal"
     author = "scott"
     avatar = "http://s.gravatar.com/avatar/e633bf55b82efbc02e5a85b53c61afea?s=80"
     themeColor = "green"
+    fullWidthTheme = false
+    centerTheme = true
 
 [languages]
     [languages.en]

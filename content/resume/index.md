@@ -20,7 +20,7 @@ Go, Python, Flask, JavaScript, React, Redux, PostgreSQL, MySQL, RDBMS, SQL, NoSQ
 
 ### Unity Technologies, Bellevue, WA
 
-**Senior Manager, Services**
+**Head of Developer Services, Cloud Services**
 October 2017 - Present
 
 As the manager of the Seattle Services team, my responsibilities included growing the team to meet the needs of our growing service, lead the roadmap and product direction, improve team morale, and coordinate with other teams in Unity to release features.  My teams were responsible for our Collaboration products, both services and the Unity Editor client, Diagnostics services, and our Developer Dashboard.
@@ -173,7 +173,7 @@ Responsibilities included maintaining existing eCommerce system, upgrading vario
 
 ## Education
 
-**Masters of Science in Software Engineering**, Expected Graduation May 2019  
+**Masters of Science in Software Engineering** *With Honors*, May 2019  
 *St Mary's University, San Antonio, TX*  
 **Bachelors of Science in Software Engineering**, May 2006  
 *St Mary's University, San Antonio, TX*  

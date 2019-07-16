@@ -13,5 +13,5 @@ Places I have lived:
 * Texas
 * Virgina
 * New York
+* Washington State
 * The Netherlands
-
