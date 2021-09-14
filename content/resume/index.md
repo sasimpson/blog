@@ -18,10 +18,25 @@ Go, Python, Flask, JavaScript, React, Redux, PostgreSQL, MySQL, RDBMS, SQL, NoSQ
 
 ## Experience
 
+### H-E-B
+
+**Senior Manager, Software Engineering**
+December 2019 - Present
+
+As part of the Inventory and Location Management organization, my teams are responsible for critical software applications used by store partners to manage accurate perpetual inventory, location, and assortment. In particular my teams maintained Event Management and Assortment Planning. 
+
+- Leader of three squads responsible for building and maintaining critical merchandising and decision making tools. 
+- Worked closely with Business owners to define and build functionality in existing and new applications.
+- Hired new skillsets to satisfy skills for building out new versions of existing appliations.
+- Managed project to create new version of Event Management application, driving delivery of MVP to stores.
+- Created team to build VR tools to replace manual and phsyical process of shelf set design.
+- Worked with third-party development contractors to drive requirements and transition of product.
+- Managed tech sustainment for responsible products, working with several teams to facilitate on time upgrades. 
+
 ### Unity Technologies, Bellevue, WA
 
 **Head of Developer Services, Cloud Services**
-October 2017 - Present
+October 2017 - November 2019
 
 As the manager of the Seattle Services team, my responsibilities included growing the team to meet the needs of our growing service, lead the roadmap and product direction, improve team morale, and coordinate with other teams in Unity to release features.  My teams were responsible for our Collaboration products, both services and the Unity Editor client, Diagnostics services, and our Developer Dashboard.
 
