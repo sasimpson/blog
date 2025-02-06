@@ -18,10 +18,28 @@ Go, Python, Flask, JavaScript, React, Redux, PostgreSQL, MySQL, RDBMS, SQL, NoSQ
 
 ## Experience
 
+### SWIVEL
+
+**Software Engineering Manager**
+September 2024 - Present
+
+Manager in the Business Experience and Platform business units, focused primarly on supporting the teams working on systems which process payments for Credit Unions.
+
+
 ### H-E-B
 
+**Staff Software Engineer**
+December 2022 - September 2024
+
+Team lead for the Virtual Experiences team, which was responsible for creating "Virtual Sets" for viewing both on desktop and projected in real scale on a wall screen. Worked closely with stakeholders to execute on their vision.
+- Lead the design and effort of building an browser-based 3D application to view BlueYonder/JDA set files in 3D space.
+- Worked with our artist to develop 3D assets for products.
+- Built Go and React-based asset management system that would search imaging and asset capture partners for set assets.
+- Worked on React/Three/Fiber based frontend which rendered the set layout and data.
+- Worked closely with third-party contractors to assist in development efforts and leveraged their 3D experience.
+
 **Senior Manager, Software Engineering**
-December 2019 - Present
+December 2019 - 2022
 
 As part of the Inventory and Location Management organization, my teams are responsible for critical software applications used by store partners to manage accurate perpetual inventory, location, and assortment. In particular my teams maintained Event Management and Assortment Planning. 
 
