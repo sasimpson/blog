@@ -1,0 +1,85 @@
+# Sample workflow for building and deploying a Hugo site to GitHub Pages
+name: Deploy Hugo site to GCP
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Build job for www on tag, only run if tagged.
+  build:
+    name: "build www site"
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.124.0
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Build with Hugo
+        env:
+          # For maximum backward compatibility with Hugo modules
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Archive generated site
+        uses: actions/upload-artifact@v4
+        with:
+          name: scotticusblog-public
+          path: |
+            public
+
+  # Deploy www on tag rel-*
+  deploy_www:
+    name: "deploy www site"
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - name: Download public artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: scotticusblog-public
+          path: site
+      - name: auth Google
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: ${{ secrets.GCP_SA_JSON }}
+      - name: upload site
+        uses: 'google-github-actions/upload-cloud-storage@v2'
+        with:
+          path: "site" 
+          destination: blog.scottic.us
+          parent: false
+          process_gcloudignore: false
