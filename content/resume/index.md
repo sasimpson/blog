@@ -10,7 +10,7 @@ Date = "2019-01-29"
 
 ## Summary
 
-Dynamic and engaging leader who is technical and capable of delivering.  Passionate about systems architecture, operations, software development and engineering, monitoring and metrics, and automation.  Excited about big data and data engineering as well as data science.  Experience leading world class development teams that delivered hundreds of millions in revenue.
+Results-driven technical leader seeking a challenging role where I can leverage my expertise in Go and Cloud Technologies to drive innovation and growth. I thrive in environments that require strategic problem-solving, technical direction, and collaboration with cross-functional teams
 
 ## Skills
 
@@ -23,8 +23,15 @@ Go, Python, Flask, JavaScript, React, Redux, PostgreSQL, MySQL, RDBMS, SQL, NoSQ
 **Software Engineering Manager**
 September 2024 - Present
 
-Manager in the Business Experience and Platform business units, focused primarly on supporting the teams working on systems which process payments for Credit Unions.
-
+Manager of the Platform and Business Experience business units, focused primarly on supporting the teams working on systems which process payments for Credit Unions.
+- Managed Platform business unit, responsible for providing cross business unit services.
+- Managed hiring process to grow the team in order to handle needed workloads.
+- Standardized team development practices, emphasizing automated test and deployment.
+- Developed automation for various business processes and metrics using Go.
+- Created intake process for Business Experience team to prioritize and vet work injections.
+- Increased team engagement and morale, set team goals and expectations to help increase and focus performance.
+- Contributed to code when needed and performed reviews of pull requests.
+- Reviewed and assisted with architectural design and decisions
 
 ### H-E-B
 
@@ -213,6 +220,7 @@ Responsibilities included maintaining existing eCommerce system, upgrading vario
 
 ## Awards and Recognition
 
-- Eagle Scout Award, 1997
+- Eagle Scout Award, Scouting America, 1997
+- Wood Badge, Scouting America, 7-583-24-1, 2025
 - Dean's List, St Mary's University
 - Outstanding Student 2006, SECA, Engineering Dept, St Mary's University
