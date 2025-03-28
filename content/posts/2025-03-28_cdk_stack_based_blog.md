@@ -1,6 +1,6 @@
 ---
 title: "AWS CDK Stack-based Blog"
-date: 2025-03-28T000:00:00-06:00
+date: 2025-03-28T00:00:00-06:00
 ---
 
 ## Background
