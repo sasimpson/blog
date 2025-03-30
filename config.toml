@@ -18,6 +18,8 @@ theme = "re-terminal"
         subtitle = "my blog."
         [languages.en.params]
             title = "hi."
+            [languages.en.params.logo]
+                logoText = "hi."
         [languages.en.menu]
             [[languages.en.menu.main]]
                 identifier = "about"
