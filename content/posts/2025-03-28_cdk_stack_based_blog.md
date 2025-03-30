@@ -1,6 +1,8 @@
 ---
 title: "AWS CDK Stack-based Blog"
 date: 2025-03-28T00:00:00-06:00
+color: red
+tags: ["typescript", "ts", "cdk", "aws", "github"]
 ---
 
 ## Background
