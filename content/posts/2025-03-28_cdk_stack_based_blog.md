@@ -40,8 +40,7 @@ const bucket = new s3.Bucket(this, "Bucket", {
     websiteErrorDocument: "404.html",
 })
 ```
-
-One thing I like about CDK is now the `bucket` variable is something you can access and do things with, such as adding permissions directly
+This will setup the bucket for static website hosting. One thing I like about CDK is now the `bucket` variable is something you can access and do things with, such as adding permissions directly
 
 ```
 const originAccessIdentity = new cf.OriginAccessIdentity(this, "OriginAccessIdentity");
@@ -100,6 +99,34 @@ new r53.ARecord(this, 'SiteAliasRecord', {
 });
 ```
 
-this blog is now running with this stack!
+this blog is now running with this stack! I use github actions to build the hugo site and store the "public" directory as an artifact of the build. That then is used by the deploy job to upload it to an S3 bucket.  Finally, I call the CloudFront create invalidation command to invalidate the cache for the site, so the new content is immediately available. 
 
-** post full code for stack **
+```
+  deploy_www:
+    name: "deploy www site"
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - name: Download public artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: myblog-public
+          path: site
+      - name: Setup AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Sync files to S3 bucket
+        run: |
+          aws s3 sync site s3://${{secrets.AWS_BUCKET}} --delete
+      - name: Invalidaiton of CloudFront Cache
+        run : | 
+          aws cloudfront create-invalidation --distribution-id ${{secrets.AWS_CF_DISTRIBUTION}} --paths '/*'
+```
+
+Full deploy [here](https://github.com/sasimpson/blog/blob/main/.github/workflows/hugo-aws.yaml).
