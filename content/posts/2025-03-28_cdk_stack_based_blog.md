@@ -23,7 +23,7 @@ Unfortunately, you still need to create a static site bucket, as the CloudFront 
 
 A sample bucket creation would look like: 
 
-```
+```typescript
 // create bucket for site
 const bucket = new s3.Bucket(this, "Bucket", {
     bucketName: "blog.my.site,
@@ -42,14 +42,14 @@ const bucket = new s3.Bucket(this, "Bucket", {
 ```
 This will setup the bucket for static website hosting. One thing I like about CDK is now the `bucket` variable is something you can access and do things with, such as adding permissions directly
 
-```
+```typescript
 const originAccessIdentity = new cf.OriginAccessIdentity(this, "OriginAccessIdentity");
 bucket.grantRead(originAccessIdentity);
 ```
 
 Next you want to pull your domain from Route53.  It is possible to use other providers, but this setup is going to utilize it since it can access Route53 to create validation for its certificate as well as create the cname for the site.  *Do not* create the domain in Route53 for your site just yet. 
 
-```
+```typescript
 // get zone out of route53
 const zone = r53.HostedZone.fromHostedZoneAttributes(this, "Zone", {
     hostedZoneId: "xxxxxxxxxxxxx",
@@ -59,7 +59,7 @@ const zone = r53.HostedZone.fromHostedZoneAttributes(this, "Zone", {
 
 To issue a certificate with AWS Certificate Manager, it can be done by manually entering the data, but why do that when you can automate it including the DNS validation!
 
-```
+```typescript
 // create new certificate for the domain
 const certificate = new acm.Certificate(this, "Cert", {
     domainName: "blog.my.site",
@@ -72,7 +72,7 @@ certificate.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY)
 
 With those pieces established, we are going to start to glue together some of this with the CloudFront Distribution
 
-```
+```typescript
 // cloudfront distribution for the s3 bucket.
 const distribution = new cf.Distribution(this, "Site Distribution", {
     certificate: certificate,
@@ -90,7 +90,7 @@ This will create a cdn endpoint which will front and cache the files served up w
 
 The last component is to add the record linking our cloudfront distribution to the host or domain we have set aside: 
 
-```
+```typescript
 // add a record for t
 new r53.ARecord(this, 'SiteAliasRecord', {
     zone: zone,
@@ -101,7 +101,7 @@ new r53.ARecord(this, 'SiteAliasRecord', {
 
 this blog is now running with this stack! I use github actions to build the hugo site and store the "public" directory as an artifact of the build. That then is used by the deploy job to upload it to an S3 bucket.  Finally, I call the CloudFront create invalidation command to invalidate the cache for the site, so the new content is immediately available. 
 
-```
+```yaml
   deploy_www:
     name: "deploy www site"
     runs-on: ubuntu-latest
