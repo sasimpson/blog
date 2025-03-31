@@ -132,3 +132,91 @@ this blog is now running with this stack! I use github actions to build the hugo
 ```
 
 Full deploy [here](https://github.com/sasimpson/blog/blob/main/.github/workflows/hugo-aws.yaml).
+
+
+this is the full stack which can take the `StaticSiteProps` interface as an argument: 
+
+```typescript
+import * as cdk from "aws-cdk-lib";
+import * as s3 from "aws-cdk-lib/aws-s3"
+import * as cf from "aws-cdk-lib/aws-cloudfront";
+import * as r53 from "aws-cdk-lib/aws-route53";
+import * as r53target from "aws-cdk-lib/aws-route53-targets";
+import * as acm from "aws-cdk-lib/aws-certificatemanager";
+import * as cforigin from "aws-cdk-lib/aws-cloudfront-origins";
+import { Construct } from "constructs";
+
+interface StaticSiteProps extends cdk.StackProps {
+  site: string;
+  domain: string;
+  bucketName: string;
+  hostedZoneId: string;
+}
+
+export class BlogcdkStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props: StaticSiteProps) {
+    super(scope, id, props);
+
+    // create bucket for site
+    const bucket = new s3.Bucket(this, "Bucket", {
+      bucketName: props.site,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
+      publicReadAccess: true,
+      blockPublicAccess: new s3.BlockPublicAccess({
+        blockPublicPolicy: false,
+        blockPublicAcls: false,
+        restrictPublicBuckets: false,
+        ignorePublicAcls: false,
+      }),
+      websiteIndexDocument: "index.html",
+      websiteErrorDocument: "404.html",
+    })
+
+
+    const originAccessIdentity = new cf.OriginAccessIdentity(this, "OriginAccessIdentity");
+    bucket.grantRead(originAccessIdentity);
+
+    // get zone out of route53
+    const zone = r53.HostedZone.fromHostedZoneAttributes(this, "Zone", {
+      hostedZoneId: props.hostedZoneId,
+      zoneName: props.domain
+    });
+
+    // create new certificate for the domain
+    const certificate = new acm.Certificate(this, "Cert", {
+      domainName: props.site,
+      certificateName: props.site + " site cert",
+      validation: acm.CertificateValidation.fromDns(zone)
+    });
+
+    certificate.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY)
+    new cdk.CfnOutput(this, 'Certificate', { value: certificate.certificateArn })
+
+    // cloudfront distribution for the s3 bucket.
+    const distribution = new cf.Distribution(this, "Site Distribution", {
+      certificate: certificate,
+      domainNames: [props.site],
+      minimumProtocolVersion: cf.SecurityPolicyProtocol.TLS_V1_2_2021,
+      defaultBehavior: {
+        origin: new cforigin.HttpOrigin(bucket.bucketWebsiteDomainName, {
+          protocolPolicy: cf.OriginProtocolPolicy.HTTP_ONLY,
+        }),
+      }
+    });
+
+
+    new cdk.CfnOutput(this, "cloudfront url", {
+      value: distribution.distributionDomainName,
+    });
+
+    // add a record for t
+    new r53.ARecord(this, 'SiteAliasRecord', {
+      zone: zone,
+      recordName: props.site,
+      target: r53.RecordTarget.fromAlias(new r53target.CloudFrontTarget(distribution))
+    });
+  }
+}
+
+```
